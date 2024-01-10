@@ -1,28 +1,46 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información del Usuario</title>
+    <title>Formulario de Recopilación de Datos</title>
 </head>
 <body>
+    <h1>Formulario de Recopilación de Datos</h1>
+    <form action="/submit" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
 
-<script>
-    var informacionUsuario = {
-        navegador: navigator.userAgent,
-        pantalla: {
-            altura: window.screen.height,
-            ancho: window.screen.width
-        }
-    };
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required><br>
 
-    var datosJSON = JSON.stringify(informacionUsuario);
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono"><br>
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://asterisc0.github.io/", true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.send(datosJSON);
-</script>
+        <label for="num_documento">Número de Documento:</label>
+        <input type="text" id="num_documento" name="num_documento" required><br>
 
+        <label for="redes_sociales">Redes Sociales:</label>
+        <input type="text" id="redes_sociales" name="redes_sociales"><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion"><br>
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad"><br>
+
+        <label for="profesion">Profesión:</label>
+        <input type="text" id="profesion" name="profesion"><br>
+
+        <label for="empresa">Empresa:</label>
+        <input type="text" id="empresa" name="empresa"><br>
+
+        <label for="sitio_web">Sitio Web:</label>
+        <input type="url" id="sitio_web" name="sitio_web"><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+    <img src="qr_code.png" alt="Código QR">
 </body>
 </html>

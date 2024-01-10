@@ -1,0 +1,28 @@
+import flask
+from flask import request
+import qrcode
+from datetime import datetime
+
+app = flask.Flask(__name__)
+
+@app.route('/')
+def index():
+    return flask.send_file('index.html')
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    data = request.form.to_dict()
+
+    # Agrega la fecha y hora de la recopilación de datos
+    data['timestamp'] = str(datetime.now())
+
+    # Guarda los datos en un archivo
+    with open('datos_recopilados.txt', 'a') as file:
+        for key, value in data.items():
+            file.write(f"{key}: {value}\n")
+        file.write("\n")
+
+    return "Datos enviados correctamente."
+
+if __name__ == '__main__':
+    app.run(debug=True)
